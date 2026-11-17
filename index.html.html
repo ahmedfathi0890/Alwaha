@@ -1266,7 +1266,7 @@
         function handleAdminLogin(e) {
             e.preventDefault();
             const pass = document.getElementById('admin-password-input').value;
-            if (pass === (appState.data.settings.password || "1234")) {
+            if (pass === (appState.data.settings.password || "Mazika")) {
                 closeLoginModal();
                 document.getElementById('landing-view').classList.add('hidden');
                 document.getElementById('menu-view').classList.add('hidden');
