@@ -270,7 +270,7 @@
                 </button>
             </div>
             <h3 class="font-heading text-xl font-extrabold text-gold-400 mb-1">دخول المدير</h3>
-            <p class="text-xs text-stone-400 mb-5">أدخل الرقم السري لإدارة المنيو (الافتراضي: <span class="text-gold-400 font-bold">1234</span>)</p>
+            <p class="text-xs text-stone-400 mb-5">أدخل الرقم السري لإدارة المنيو</p>
             
             <form onsubmit="handleAdminLogin(event)" class="space-y-4">
                 <input type="password" id="admin-password-input" required placeholder="••••" 
@@ -620,7 +620,7 @@
                 subtitle: "ALWAHA · CAFÉ & RESTAURANT",
                 currency: "ج.م",
                 whatsapp: "201112173224",
-                password: "1234"
+                password: "Mazika"
             },
             categories: [
                 // قسم الأكل (FOOD)
@@ -1230,9 +1230,12 @@
             const tableNum = document.getElementById('table-number-input').value.trim();
             const phone = settings.whatsapp ? settings.whatsapp.replace(/[^0-9]/g, '') : '201112173224';
 
-            let message = `*طلب جديد - ${settings.name}*\n`;
-            if (tableNum) message += `📍 *الطاولة / ملاحظات:* ${tableNum}\n`;
-            message += `--------------------------\n`;
+            let message = `*طلب جديد - ${settings.name}*
+`;
+            if (tableNum) message += `📍 *الطاولة / ملاحظات:* ${tableNum}
+`;
+            message += `--------------------------
+`;
 
             let total = 0;
             appState.cart.forEach(c => {
@@ -1242,11 +1245,13 @@
                     const title = c.isCombo ? `${item.name} (كومبو)` : item.name;
                     const sub = unitPrice * c.quantity;
                     total += sub;
-                    message += `▪️ ${title} (${c.quantity}) = ${sub} ${settings.currency}\n`;
+                    message += `▪️ ${title} (${c.quantity}) = ${sub} ${settings.currency}
+`;
                 }
             });
 
-            message += `--------------------------\n💰 *الإجمالي:* ${total} ${settings.currency}`;
+            message += `--------------------------
+💰 *الإجمالي:* ${total} ${settings.currency}`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
@@ -1620,7 +1625,7 @@
             document.getElementById('set-subtitle').value = settings.subtitle || '';
             document.getElementById('set-currency').value = settings.currency || 'ج.م';
             document.getElementById('set-whatsapp').value = settings.whatsapp || '';
-            document.getElementById('set-password').value = settings.password || '1234';
+            document.getElementById('set-password').value = settings.password || 'Mazika';
         }
 
         function handleSaveSettings(e) {
@@ -1631,7 +1636,7 @@
                 subtitle: document.getElementById('set-subtitle').value.trim(),
                 currency: document.getElementById('set-currency').value.trim(),
                 whatsapp: document.getElementById('set-whatsapp').value.trim(),
-                password: document.getElementById('set-password').value.trim() || '1234'
+                password: document.getElementById('set-password').value.trim() || 'Mazika'
             };
             saveMenuData(newData);
             showToast("تم حفظ الإعدادات بنجاح", "success");
